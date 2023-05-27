@@ -1,0 +1,16 @@
+{ 
+   "name": "Ringga Revanka", 
+   "short_name": "Ringga", 
+   "description": "Ringga Revanka", 
+ "icons": [{ 
+     "src": "https://avatars.githubusercontent.com/u/99320495", 
+       "sizes": "9999x9999", 
+       "type": "image/png" 
+     }], 
+   "lang": "en", 
+   "start_url": "/", 
+   "scope": "https://ringgarevanka.github.io/", 
+   "display": "standalone", 
+   "theme_color": "#131931", 
+   "background_color": "#0F2034" 
+ }
