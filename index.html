@@ -23,7 +23,23 @@
   <script>
     window.onload = function() {
       window.location.href = "https://ringgarevanka.github.io/Link";
-      alert("Hi," + navigator.platform);
+      var deviceInfo = "Detected:" + "\n" +
+   "User Agent: " + navigator.userAgent + "\n" +
+   "Platform: " + navigator.platform + "\n" +
+   "Full URL: " + location.href + "\n" +
+   "Protocol: " + location.protocol + "\n" +
+   "Domain and Port: " + location.host + "\n" +
+   "Path: " + location.pathname + "\n" +
+   "Query Parameter: " + location.search + "\n" +
+   "Anchor Section: " + location.hash + "\n" +
+   "Screen Width (physical): " + screen.width + " pixels\n" +
+   "Screen Height (physical): " + screen.height + " pixels\n" +
+   "Screen Ratio (physical): " + (screen.width / screen.height).toFixed(2) + "\n" +
+   "Screen Width (in pixels): " + window.innerWidth + " pixels\n" +
+   "Screen Height (in pixels): " + window.innerHeight + " pixels\n" +
+   "Orientation: " + (window.innerWidth > window.innerHeight ? "Landscape" : "Portrait");
+
+alert(deviceInfo);
     };
   </script>
 </head>
