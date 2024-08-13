@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title>
+    <style>
+        html {
+            background: #000;
+        }
+    </style>
+    <script>
+        (function performPreloadAndRedirect() {
+            const targetUrl = "/Link";
+        
+            function redirect() {
+                window.location.href = targetUrl;
+            }
+        
+            function preloadAndRedirect() {
+                const preloadLink = document.createElement('link');
+                preloadLink.rel = 'preload';
+                preloadLink.href = targetUrl;
+                preloadLink.as = 'document';
+                document.head.appendChild(preloadLink);
+        
+                // Redirect immediately if preloading finishes quickly
+                preloadLink.onload = redirect;
+        
+                // Ensure redirect after a timeout, even if preload doesn't trigger 'onload'
+                setTimeout(redirect, 3000);
+            }
+        
+            // Use fetch if supported for a more modern approach
+            if (typeof fetch === "function") {
+                fetch(targetUrl, { method: 'GET', mode: 'no-cors' })
+                    .then(redirect)
+                    .catch(preloadAndRedirect);
+            } else {
+                // Fallback for older browsers
+                setTimeout(preloadAndRedirect, 0);  // Ensure it runs after the current event loop
+            }
+        })();
+    </script>
+    <noscript>
+        <meta http-equiv="refresh" content="0; url=/Link">
+    </noscript>
+</head>
+</html>
