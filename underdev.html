@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>⚠ This Page is Under Development ⚠</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #00ff00;
+            font-family: monospace;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.4;
+            font-size: 1rem;
+            user-select: none; /* Prevent text selection */
+            overflow: hidden; /* Prevent scrolling on body */
+            -ms-touch-action: none; /* Internet Explorer 10+ */
+            touch-action: none; /* All browsers that support touch-action */
+        }
+        #terminal {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow: auto; /* Allows scrolling on div */
+            font-size: 0.8rem;
+            max-width: 100%;
+            height: calc(100vh - 40px); /* Leaving room for body padding */
+            pointer-events: auto; /* Allows interaction with scrolling and clicking */
+            -webkit-user-select: none; /* Prevent text selection in Webkit-based browsers */
+            -ms-user-select: none; /* Prevent text selection in Internet Explorer */
+            user-select: none; /* Prevent text selection */
+        }
+        #terminal a {
+            color: #00ff00;
+            text-decoration: underline; /* Adding underline to links */
+        }
+        #terminal::-webkit-scrollbar {
+            display: block; /* Showing scrollbars in Webkit and Blink browsers */
+        }
+        #terminal::-webkit-scrollbar-thumb {
+            background: #555; /* Scrollbar colors in Webkit and Blink browsers */
+        }
+        #terminal::-webkit-scrollbar-track {
+            background: #000; /* Scrollbar track color in Webkit and Blink browsers */
+        }
+        /* For Firefox */
+        #terminal {
+            scrollbar-width: thin; /* Show scrollbars in Firefox */
+            scrollbar-color: #555 #000; /* Scrollbar colors in Firefox */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="terminal"></div>
+
+    <script>
+        const output = `
+⚠ This Page is Under Development ⚠
+---------------
+<a href="https://ringgarevanka.github.io/" target="_blank">https://ringgarevanka.github.io/</a>
+`;
+        
+        const terminal = document.getElementById('terminal');
+        terminal.innerHTML = output;
+        
+        // Prevents right clicks and similar actions
+        terminal.addEventListener('contextmenu', (e) => e.preventDefault());
+        terminal.addEventListener('mousedown', (e) => e.preventDefault());
+        terminal.addEventListener('selectstart', (e) => e.preventDefault());
+        
+        // Prevent copy-paste and key events
+        terminal.addEventListener('copy', (e) => e.preventDefault());
+        terminal.addEventListener('paste', (e) => e.preventDefault());
+        terminal.addEventListener('keydown', (e) => e.preventDefault());
+        terminal.addEventListener('keyup', (e) => e.preventDefault());
+        terminal.addEventListener('keypress', (e) => e.preventDefault());
+    </script>
+</body>
+
+</html>
